@@ -6,14 +6,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-// import createError from 'http-errors';
-// import express from 'express'
-// import path from 'path'
-// import cookieParser from 'cookie-parser'
-// import logger from 'morgan'
-// import indexRouter from './routes/index'
-// import usersRouter from './routes/users'
-
 
 var app = express();
 
@@ -28,6 +20,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')));
 app.use('/jsm/', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')));
+app.use('/dist/', express.static(path.join(__dirname, 'node_modules/lil-gui/dist')));
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
