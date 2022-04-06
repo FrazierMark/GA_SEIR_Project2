@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./build/three.module.js",
+          "three/examples/jsm/controls/OrbitControls":"./jsm/controls/OrbitControls.js",
+          "three/examples/jsm/libs/stats.module":"./jsm/libs/stats.module.js",
+          "three/examples/jsm/libs/dat.gui.module":"./jsm/libs/dat.gui.module.js"
+        }
+      }
+  </script>
+    <script type="module" src="javascripts/scene.js"></script>
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+
+
+    
+  </body>
+</html>
