@@ -15,6 +15,9 @@ const wayfairURLS = [
   "https://api.wayfair.com/v1/3dapi/models?page=3"
 ];
 
+
+
+
 // Takes client to 3rd party login -- Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -71,11 +74,6 @@ router.get('/', function (req, res, next) {
 
   res.render('index', { title: 'Express' });
 });
-
-
-
-
-
 
 
 
