@@ -5,8 +5,13 @@ const passport = require('passport')
 
 const wayfairRootURL = 'https://api.wayfair.com';
 const apiKey = process.env.WAYFAIR_TOKEN
+const userLogin = process.env.WAYFAIR_LOGIN
 
-
+const wayfairURLS = [
+  "https://api.wayfair.com/v1/3dapi/models?page=1",
+  "https://api.wayfair.com/v1/3dapi/models?page=2",
+  "https://api.wayfair.com/v1/3dapi/models?page=3"
+];
 
 // Takes client to 3rd party login -- Google OAuth login route
 router.get('/auth/google', passport.authenticate(
@@ -44,9 +49,9 @@ router.get('/', function (req, res, next) {
 
   const options = {
     method: 'GET',
-    url: 'https://api.wayfair.com/v1/3dapi/models?page=4',
+    url: 'https://api.wayfair.com/v1/3dapi/models?page=2',
     auth: {
-      username: 'm.mark.frazier@gmail.com',
+      username: userLogin,
       password: apiKey
     }
   };
