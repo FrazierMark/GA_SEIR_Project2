@@ -7,7 +7,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 
-require('./config/database');
+// require('./config/database');
 require('./config/passport');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -19,9 +19,6 @@ const app = express();
 // inside it we're going to end storing logged in users database id
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 // setting up our session cookie
 app.use(session({
@@ -42,6 +39,12 @@ app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build
 app.use('/jsm/', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')));
 app.use('/dist/', express.static(path.join(__dirname, 'node_modules/lil-gui/dist')));
 
+
+// Add this middleware BELOW passport middleware
+app.use(function (req, res, next) {
+  res.locals.user = req.user; // res.locals will assign a variable to every single ejs view, create global varibales for views
+   next();
+});
 
 
 app.use('/', indexRouter);
