@@ -38,10 +38,12 @@ passport.serializeUser(function (user, cb) {
 });
 
 // This happens on every request after the user is logged in
+// We open the cookie 
 passport.deserializeUser(function (userId, cb) {
+    // finds User in db and assigns.... 
     User.findById(userId).then(function (user) {
         cb(null, user); // this assigns the user document we just found to the request object
-        // assigns it to req.user
+        // assigns the user to req.user
     });
 });
 
