@@ -1,7 +1,9 @@
 var express = require('express');
+const User = require("../models/user")
 var router = express.Router();
 const axios = require('axios')
-const passport = require('passport')
+const passport = require('passport');
+const user = require('../models/user');
 
 const wayfairRootURL = 'https://api.wayfair.com';
 const apiKey = process.env.WAYFAIR_TOKEN
@@ -46,6 +48,8 @@ router.get('/', function (req, res, next) {
 
   // redirect if we dont get anything back....
 
+
+  console.log(user)
 
   const options = {
     method: 'GET',
