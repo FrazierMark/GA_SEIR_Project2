@@ -47,12 +47,12 @@ router.get('/logout', function (req, res) {
 /* GET home page. */
 router.get('/', function (req, res, next) {
 
-  console.log(req.query)
+  // console.log(req.query)
 
   // redirect if we dont get anything back....
 
 
-  console.log(user)
+  // console.log(user)
 
   // const options = {
   //   method: 'GET',
