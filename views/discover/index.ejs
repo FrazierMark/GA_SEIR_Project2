@@ -1,20 +1,33 @@
 <%- include('../partials/header') %>
 <body>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "./build/three.module.js",
-          "three/examples/jsm/loaders/GLTFLoader":"./jsm/loaders/GLTFLoader.js",
-          "three/examples/jsm/controls/OrbitControls":"./jsm/controls/OrbitControls.js",
-          "three/examples/jsm/libs/stats.module":"./jsm/libs/stats.module.js",
-          "lil-gui":"./dist/lil-gui.esm.js"
-        }
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./build/three.module.js",
+        "three/examples/jsm/loaders/GLTFLoader": "./jsm/loaders/GLTFLoader.js",
+        "three/examples/jsm/controls/OrbitControls": "./jsm/controls/OrbitControls.js",
+        "three/examples/jsm/libs/stats.module": "./jsm/libs/stats.module.js",
+        "lil-gui": "./dist/lil-gui.esm.js"
       }
+    }
   </script>
-    <script type="module" src="javascripts/landingPage.js"></script>
-  </body>
+  <script type="module" src="javascripts/landingPage.js"></script>
+
+  <div class="discover_container">
+  <form id="" action="/discover/<%= products.sku %>" method="GET">
+    <select name="productSku"">
+      <%- products.map(p=>
+        `<option value="${p.sku}">${p.product_name}</option>`
+        ).join('') %>
+    </select>
+    <button type="submit">Details</button>
+  </form>
+  <div>
 
 
+</body>
+
+<!-- 
 <table id="list">
     <thead>
       <tr>
@@ -24,7 +37,7 @@
       </tr>
     </thead>
     <tbody>
-      <% products.forEach(function(p) { %>
+     <% products.forEach(function(p) { %>
         <tr>
           <td><%= p.sku %></td>
           <td><%= p.product_name %></td>
@@ -33,4 +46,4 @@
         <% }); %>
       </tbody>
     </table>
-    
+     -->

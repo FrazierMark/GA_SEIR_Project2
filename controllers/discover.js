@@ -4,7 +4,48 @@ const User = require('../models/user')
 const axios = require('axios')
 
 
-const data = [
+
+const wayfairRootURL = 'https://api.wayfair.com';
+const wayfairURLS = [
+    "https://api.wayfair.com/v1/3dapi/models?page=1",
+    "https://api.wayfair.com/v1/3dapi/models?page=2",
+    "https://api.wayfair.com/v1/3dapi/models?page=3"
+];
+const apiKey = process.env.WAYFAIR_TOKEN
+const userLogin = process.env.WAYFAIR_LOGIN
+
+
+
+const index = async (req, res) => {
+    let wayfairData = {}
+    const options = {
+        method: 'GET',
+        url: wayfairURLS[0],
+        auth: {
+            username: userLogin,
+            password: apiKey
+        }
+    };
+
+    // try {
+    //     wayfairData = await axios.request(options)
+    //     console.log(wayfairData.data)
+    // } catch (error) {
+    //     console.error(error);
+    // }
+    res.render("discover/index", { title: 'Discover', products: testData })
+};
+
+
+
+module.exports = {
+    index
+};
+
+
+
+
+const testData = [
     {
       sku: 'FV50959',
       product_name: 'Willow 25Cm Wide Armchair',
@@ -505,42 +546,4 @@ const data = [
       thumbnail_image_url: 'https://secure.img1.wfcdn.com/lf/43/hash/42526/57485437/1/custom_image.jpg',
       model: [Object]
     }
-  ]
-
-const wayfairRootURL = 'https://api.wayfair.com';
-const wayfairURLS = [
-    "https://api.wayfair.com/v1/3dapi/models?page=1",
-    "https://api.wayfair.com/v1/3dapi/models?page=2",
-    "https://api.wayfair.com/v1/3dapi/models?page=3"
-];
-const apiKey = process.env.WAYFAIR_TOKEN
-const userLogin = process.env.WAYFAIR_LOGIN
-  
-
-
-const index = async (req, res) => {
-    let wayfairData = {}
-    const options = {
-    method: 'GET',
-    url: wayfairURLS[0],
-    auth: {
-      username: userLogin,
-      password: apiKey
-    }
-  };
-
-    // try {
-    //     wayfairData = await axios.request(options)
-    //     console.log(wayfairData.data)
-    // } catch (error) {
-    //     console.error(error);
-    // }
-    res.render("discover/index", { title: 'Discover', products: data })
-};
-
-
-
-module.exports = {
-    index
-  };
-  
+]
