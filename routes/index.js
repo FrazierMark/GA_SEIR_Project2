@@ -16,8 +16,6 @@ const wayfairURLS = [
 ];
 
 
-
-
 // Takes client to 3rd party login -- Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
@@ -38,9 +36,8 @@ router.get('/oauth2callback', passport.authenticate(
 // OAuth logout route
 router.get('/logout', function (req, res) {
   req.logout(); // <- passport method that destroys the cookie! aka we no longer know what the client is
-  res.redirect('/movies');
+  res.redirect('/landingPage');
 });
-
 
 
 
@@ -72,7 +69,7 @@ router.get('/', function (req, res, next) {
   // const wayfairData = JSON.parse(response)
   // console.log(wayfairData)
 
-  res.render('index', { title: 'Express' });
+  res.render('landingPage', { title: 'Express' });
 });
 
 

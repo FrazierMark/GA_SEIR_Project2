@@ -6,30 +6,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "./build/three.module.js",
-          "three/examples/jsm/loaders/GLTFLoader":"./jsm/loaders/GLTFLoader.js",
-          "three/examples/jsm/controls/OrbitControls":"./jsm/controls/OrbitControls.js",
-          "three/examples/jsm/libs/stats.module":"./jsm/libs/stats.module.js",
-          "lil-gui":"./dist/lil-gui.esm.js"
-        }
-      }
-  </script>
-    <script type="module" src="javascripts/scene.js"></script>
   </head>
 
 
 <nav class="nav_container">
-
-    <a href="https://www.linkedin.com/in/mark-frazier/">Discover</a>
+    <a href="">Discover</a>
     <% if (user) { %>
       <a href="/wishlist">Wish List</a>
       <a href="/logout">Log Out</a>
     <% } else { %>
       <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
     <% } %>
-
     </a>
 </nav>
