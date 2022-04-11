@@ -54,20 +54,20 @@ router.get('/', function (req, res, next) {
 
   // console.log(user)
 
-  // const options = {
-  //   method: 'GET',
-  //   url: 'https://api.wayfair.com/v1/3dapi/models?page=2',
-  //   auth: {
-  //     username: userLogin,
-  //     password: apiKey
-  //   }
-  // };
+  const options = {
+    method: 'GET',
+    url: 'https://api.wayfair.com/v1/3dapi/models?page=2',
+    auth: {
+      username: userLogin,
+      password: apiKey
+    }
+  };
 
-  // axios.request(options).then(function (response) {
-  //   console.log(response.data);
-  // }).catch(function (error) {
-  //   console.error(error);
-  // });
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+  }).catch(function (error) {
+    console.error(error);
+  });
 
   // const wayfairData = JSON.parse(response)
   // console.log(wayfairData)
