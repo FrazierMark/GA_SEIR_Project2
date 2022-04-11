@@ -1,1 +1,36 @@
+<%- include('../partials/header') %>
+<body>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./build/three.module.js",
+          "three/examples/jsm/loaders/GLTFLoader":"./jsm/loaders/GLTFLoader.js",
+          "three/examples/jsm/controls/OrbitControls":"./jsm/controls/OrbitControls.js",
+          "three/examples/jsm/libs/stats.module":"./jsm/libs/stats.module.js",
+          "lil-gui":"./dist/lil-gui.esm.js"
+        }
+      }
+  </script>
+    <script type="module" src="javascripts/landingPage.js"></script>
+  </body>
 
+
+<table id="list">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Release<br>Year</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.forEach(function(p) { %>
+        <tr>
+          <td><%= p.sku %></td>
+          <td><%= p.product_name %></td>
+          <td><a href="/discover/<%= p.sale_price %>">DETAILS</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    
