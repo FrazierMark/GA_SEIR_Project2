@@ -3,13 +3,13 @@ const router = express.Router();
 const discoverCtrl = require('../controllers/discover');
 const isLoggedIn = require('../config/auth');
 
-
+router.get('/:sku', discoverCtrl.show)
 
 //Access to all furniture....
 router.get('/', discoverCtrl.index);
 
 
-router.get('/:sku', discoverCtrl.show)
+
 
 
 module.exports = router;

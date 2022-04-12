@@ -12,7 +12,7 @@ const wayfairURLS = [
 const apiKey = process.env.WAYFAIR_TOKEN
 const userLogin = process.env.WAYFAIR_LOGIN
 
-
+//
 
 const index = async (req, res) => {
     let wayfairData = {}
@@ -35,16 +35,32 @@ const index = async (req, res) => {
 };
 
 
-const show = () => {
 
-    // direct axios request using SKU for all product details
+const show = async (req, res) => {
+  console.log('show')
+  let furnitureDetails;
 
-    // get file path variable
+  // direct axios request using SKU for all product details
+  const options = {
+    method: 'GET',
+    url: 'https://api.wayfair.com/v1/3dapi/models?skus[]=TRPT1526',
+    auth: {
+      username: userLogin,
+      password: apiKey
+    }
+  };
 
-    // export Product Details && objectPath to show/detail page
+  try {
+    furnitureDetails = await axios.request(options)
+    console.log(furnitureDetails.data[0])
+    //console.log(furnitureDetails.data[0].model.glb)
+
+  } catch (error) {
+    console.error(error);
+  }
 
 
-    res.render("discover/show", { title: 'Product Details', objectPath: 'FAKE URL!!'  })
+  res.render("discover/show", { title: 'Product Details', furnitureDetails: furnitureDetails.data[0], objectPath: furnitureDetails.data[0].model.glb })
 
 }
 

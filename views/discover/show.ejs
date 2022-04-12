@@ -1,0 +1,49 @@
+<%- include('../partials/header') %>
+<body>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "../build/three.module.js",
+        "three/examples/jsm/loaders/GLTFLoader": "../jsm/loaders/GLTFLoader.js",
+        "three/examples/jsm/controls/OrbitControls": "../jsm/controls/OrbitControls.js",
+        "three/examples/jsm/libs/stats.module": "../jsm/libs/stats.module.js",
+        "lil-gui": "../dist/lil-gui.esm.js"
+      }
+    }
+  </script>
+ <script id="helper" data-name='<%= objectPath %>'  src="../javascripts/discoverShow.js"></script>
+  
+  <script type="module" src="../javascripts/discoverShow.js"></script>
+  
+<div class="furniture_details" >
+    <h1> Furniture Details </h1>
+    <ul class="skills-list">
+      <li> Product:  <%= furnitureDetails.product_name %> </li>
+      <li> Description:  <%= furnitureDetails.product_description %> </li>
+      <li> Class:  <%= furnitureDetails.class_name %> </li>
+      <li> Price:  <%= furnitureDetails.sale_price %> </li>
+    </ul>
+</div>
+    
+
+  <div>
+
+    <div> Product Details </div>
+
+
+    <div> Reviews </div>
+
+
+    
+    <button>
+    <div> Add to Wish List</div>
+    </button>
+    
+
+    <button>
+    <div> Add a Review </div>
+    </button>
+
+
+
+</body>

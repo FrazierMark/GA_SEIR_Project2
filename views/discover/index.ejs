@@ -10,43 +10,25 @@
         "lil-gui": "./dist/lil-gui.esm.js"
       }
     }
-  </script>
-  <script id="helper" data-name='<%= objectPath %>'  src="javascripts/landingPage.js"></script>
-  
+  </script>  
   <script type="module" src="javascripts/discoverPage.js"></script>
 
+<h1>FEATURED PRODUCT</h1>
+
   <div class="discover_container">
-  <form id="" action="/discover/<%= products.sku %>" method="GET">
-    <select name="productSku"">
-      <%- products.map(p=>
-        `<option value="${p.sku}">${p.product_name}</option>`
-        ).join('') %>
-    </select>
-    <button type="submit">Details</button>
-  </form>
-  
+
+    <table>
+    <tbody>
+      <% products.forEach(function(p) { %>
+        <tr>
+          <td><%= p.sku %></td>
+          <td><%= p.product_name %></td>
+          <td><a href="/discover/<%= p.sku %>">DETAILS</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>  
   <div>
 
 
 </body>
-
-<!-- 
-<table id="list">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Release<br>Year</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-     <% products.forEach(function(p) { %>
-        <tr>
-          <td><%= p.sku %></td>
-          <td><%= p.product_name %></td>
-          <td><a href="/discover/<%= p.sale_price %>">DETAILS</a></td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
-     -->
