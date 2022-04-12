@@ -31,7 +31,7 @@ const index = async (req, res) => {
     // } catch (error) {
     //     console.error(error);
     // }
-    res.render("discover/index", { title: 'Discover', products: testData})
+  res.render("discover/index", { title: 'Discover', products: testData, objectPath: 'FAKE URL' })
 };
 
 
