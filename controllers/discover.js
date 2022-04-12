@@ -31,13 +31,21 @@ const index = async (req, res) => {
     // } catch (error) {
     //     console.error(error);
     // }
-    res.render("discover/index", { title: 'Discover', products: testData })
+    res.render("discover/index", { title: 'Discover', products: testData})
 };
 
 
 const show = () => {
 
-    res.render("discover/show", {title: 'Product Details', })
+    // direct axios request using SKU for all product details
+
+    // get file path variable
+
+    // export Product Details && objectPath to show/detail page
+
+
+    res.render("discover/show", { title: 'Product Details', objectPath: 'FAKE URL!!'  })
+
 }
 
 
