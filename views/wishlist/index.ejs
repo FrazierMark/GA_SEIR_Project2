@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+  <body>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./build/three.module.js",
+          "three/examples/jsm/loaders/GLTFLoader":"./jsm/loaders/GLTFLoader.js",
+          "three/examples/jsm/controls/OrbitControls":"./jsm/controls/OrbitControls.js",
+          "three/examples/jsm/libs/stats.module":"./jsm/libs/stats.module.js",
+          "lil-gui":"./dist/lil-gui.esm.js"
+        }
+      }
+  </script>
+    <script type="module" src="javascripts/landingPage.js"></script>
+  </body>
+
+
+  <table id="list">
+    <thead>
+      <tr>
+        <th>Product Name</th><br>
+        <th>Product Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% furniture.forEach(function(f) { %>
+        <tr>
+          <td><%= f.product_name %></td>
+          <td><%= f.sale_price %></td>
+          <td><a href="/wishlist/<%= f._id %>">DETAILS</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    

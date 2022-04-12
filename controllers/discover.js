@@ -1,5 +1,4 @@
 const FurnitureObject = require('../models/furnitureObject');
-const Note = require('../models/note');
 const User = require('../models/user')
 const axios = require('axios')
 
@@ -52,8 +51,8 @@ const show = async (req, res) => {
 
   try {
     furnitureDetails = await axios.request(options)
-    console.log(furnitureDetails.data[0])
-    //console.log(furnitureDetails.data[0].model.glb)
+    
+    furnitureDetails.data[0].glb = furnitureDetails.data[0].model.glb
 
   } catch (error) {
     console.error(error);
