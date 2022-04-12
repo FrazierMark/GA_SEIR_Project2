@@ -3,8 +3,6 @@ const Note = require('../models/note');
 const User = require('../models/user')
 const axios = require('axios')
 
-
-
 const wayfairRootURL = 'https://api.wayfair.com';
 const wayfairURLS = [
     "https://api.wayfair.com/v1/3dapi/models?page=1",
@@ -37,10 +35,18 @@ const index = async (req, res) => {
 };
 
 
+const show = () => {
+
+    res.render("discover/show", {title: 'Product Details', })
+}
+
+
 
 module.exports = {
-    index
+    index,
+    show
 };
+
 
 
 

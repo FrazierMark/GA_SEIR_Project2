@@ -9,5 +9,7 @@ const isLoggedIn = require('../config/auth');
 router.get('/', discoverCtrl.index);
 
 
+router.get('/:sku', discoverCtrl.show)
+
 
 module.exports = router;
