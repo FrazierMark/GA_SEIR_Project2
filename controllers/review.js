@@ -2,26 +2,21 @@ const FurnitureObject = require('../models/furnitureObject');
 const User = require('../models/user')
 
 
-
-
 const index = async (req, res) => {
-    // save item in db 
-    console.log(req.body)
-    const newItem = new FurnitureObject(req.body);
+    let furnitureData;
     try {
-        const savedNewItem = await newItem.save()
-        console.log(savedNewItem)
-    } catch (err) {
-        console.log(err)
+        furnitureData = await FurnitureObject.findById(req.params.id)
+    } catch (error) {
+        console.error(error);
     }
 
-    res.redirect(`/review/:${newItem._id}`)
+    res.render("review/index", { title: 'Product Review', furnitureDetails: furnitureData, objectPath: furnitureData.model })
 }
 
 
 const newReview = (req, res) => {
     FurnitureObject.find({}, function (err, furniture) {
-        res.render("wishlist/index", { furniture, title: "My Furniture" });
+        res.redirect("discover/:id", { furniture, title: "My Furniture" });
     });
 }
 

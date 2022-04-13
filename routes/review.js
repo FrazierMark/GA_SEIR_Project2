@@ -5,7 +5,7 @@ const isLoggedIn = require('../config/auth');
 
 router.post('/:id', isLoggedIn, reviewCtrl.new)
 
-router.get('/', isLoggedIn, reviewCtrl.index);
+router.get('/:id', isLoggedIn, reviewCtrl.index);
 
 
 
