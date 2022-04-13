@@ -10,37 +10,21 @@
         "lil-gui": "./dist/lil-gui.esm.js"
       }
     }
-  </script>  
+  </script>
   <script type="module" src="javascripts/discoverPage.js"></script>
 
-<h1>FEATURED PRODUCT</h1>
-<!-- 
   <div class="discover_container">
+    <div id="discover_item">FEATURED PRODUCT</div>
 
-    <table>
-    <tbody>
-      <% products.forEach(function(p) { %>
-        <tr>
-          <td><%= p.sku %></td>
-          <td><%= p._id %></td>
-          <td><a href="/discover/<%= p._id %>">DETAILS</a></td>
-        </tr>
+    <div id="discover_item" class="dropdown">
+      <a id="my-dropdown" href="#" class="link_button" data-toggle="dropdown"
+        >All Products</a
+      >
+      <ul class="dropdown-menu">
+        <% products.forEach(function(p) { %>
+        <li><a href="/discover/<%= p._id %>"><%= p.product_name %></a></li>
         <% }); %>
-      </tbody>
-    </table>  
-  <div> -->
-
-    <div class="dropdown">
-      <a id="my-dropdown" href="#" class="link_button" data-toggle="dropdown">All Products</a>
-      
-      
-        <ul class="dropdown-menu">
-          <% products.forEach(function(p) { %>
-          <li><a href="/discover/<%= p._id %>"><%= p.product_name %></a></li>
-          <% }); %>
-        </ul>
-  
+      </ul>
+    </div>
   </div>
-
-
 </body>
