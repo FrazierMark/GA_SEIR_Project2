@@ -40,8 +40,6 @@ const index = (req, res) => {
 }
 
 
-
-
 const show = async (req, res) => {
   let furnitureData;
   try {
@@ -49,11 +47,8 @@ const show = async (req, res) => {
   } catch (error) {
     console.error(error);
   }
-
   res.render("discover/show", { title: 'Product Details', furnitureDetails: furnitureData, objectPath: furnitureData.model })
 }
-
-
 
 
 module.exports = {

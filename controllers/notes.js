@@ -1,7 +1,6 @@
 const FurnitureObject = require('../models/furnitureObject');
 const User = require('../models/user')
 
-// get individual note for furniture
 const showNotes = async (req, res) => {
     try {
         furnitureData = await FurnitureObject.findById(req.params.id)
@@ -11,7 +10,6 @@ const showNotes = async (req, res) => {
     }
     res.render(`notes/index`, { title: 'Private Notes', furnitureData: furnitureData, objectPath: furnitureData.model })
 }
-
 
 const addNote = (req, res) => {
     FurnitureObject.findById(req.params.id, function (err, furnitureItem) {
@@ -23,7 +21,6 @@ const addNote = (req, res) => {
         })
     })
 }
-
 
 function editNote(req, res, next) {
     FurnitureObject.findOne({ 'notes._id': req.params.id }).then(function (object) {
@@ -38,7 +35,6 @@ function editNote(req, res, next) {
     });
 }
 
-
 function deleteNote(req, res, next) {
     FurnitureObject.findOne({ 'notes._id': req.params.id }).then(function (item) {
         const note = item.notes.id(req.params.id);
@@ -51,8 +47,6 @@ function deleteNote(req, res, next) {
         });
     });
 }
-
-
 
 module.exports = {
     show: showNotes,

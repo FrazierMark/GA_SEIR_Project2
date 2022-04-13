@@ -1,11 +1,5 @@
 const FurnitureObject = require('../models/furnitureObject');
 const User = require('../models/user')
-const axios = require('axios');
-const { findById } = require('../models/furnitureObject');
-
-
-
-
 
 const newWishItem = async (req, res) => {
     try {
@@ -22,7 +16,6 @@ const newWishItem = async (req, res) => {
     res.redirect('/wishlist')
 }
 
-
 const index = (req, res) => {
     const currentUser = User.findById(req.user.id)
         .populate('wish_list')
@@ -31,7 +24,6 @@ const index = (req, res) => {
             res.render("wishlist/index", { wishList: wishList, title: "My Furniture" });
         })
 }
-
 
 module.exports = {
     index,

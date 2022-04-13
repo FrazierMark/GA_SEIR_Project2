@@ -1,7 +1,6 @@
 const FurnitureObject = require('../models/furnitureObject');
 const User = require('../models/user')
 
-
 const index = async (req, res) => {
     let furnitureData;
     try {
@@ -11,7 +10,6 @@ const index = async (req, res) => {
     }
     res.render("review/index", { title: 'Product Review', furnitureDetails: furnitureData, objectPath: furnitureData.model })
 }
-
 
 const newReview = (req, res) => {
     FurnitureObject.findById(req.params.id, function (err, furnitureItem) {
@@ -26,7 +24,6 @@ const newReview = (req, res) => {
     })
 }
 
-
 function deleteReview(req, res, next) {
     FurnitureObject.findOne({ 'reviews._id': req.params.id }).then(function (item) {
         const review = item.reviews.id(req.params.id);
@@ -40,7 +37,6 @@ function deleteReview(req, res, next) {
     });
 }
 
-
 function editReview(req, res, next) {
     FurnitureObject.findOne({ 'reviews._id': req.params.id }).then(function (item) {
         const review = item.reviews.id(req.params.id);
@@ -53,7 +49,6 @@ function editReview(req, res, next) {
         });
     });
 }
-
 
 module.exports = {
     index,
