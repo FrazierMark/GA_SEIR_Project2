@@ -1,6 +1,7 @@
 require('dotenv').config(); // Allows server to read from the .env file
 const createError = require('http-errors');
 const express = require('express');
+const bodyParser = require('body-parser')
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -13,6 +14,7 @@ require('./config/passport');
 const indexRouter = require('./routes/index');
 const discoverRouter = require('./routes/discover');
 const wishListRouter = require('./routes/wishlist')
+const reviewRouter = require('./routes/review')
 
 const app = express();
 
@@ -35,7 +37,10 @@ app.use(passport.session());
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')));
@@ -52,7 +57,8 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/discover', discoverRouter);
-app.use('/wishlist', wishListRouter)
+app.use('/wishlist', wishListRouter);
+app.use('/review', reviewRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

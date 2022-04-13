@@ -22,8 +22,8 @@
       <% products.forEach(function(p) { %>
         <tr>
           <td><%= p.sku %></td>
-          <td><%= p.product_name %></td>
-          <td><a href="/discover/<%= p.sku %>">DETAILS</a></td>
+          <td><%= p._id %></td>
+          <td><a href="/discover/<%= p._id %>">DETAILS</a></td>
         </tr>
         <% }); %>
       </tbody>

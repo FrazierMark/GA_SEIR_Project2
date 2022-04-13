@@ -8,6 +8,7 @@ router.post('/', isLoggedIn, wishlistCtrl.new)
 //Access to all furniture....
 router.get('/', isLoggedIn, wishlistCtrl.index);
 
+// router.get('/:id', wishlistCtrl.show);
 
 
 

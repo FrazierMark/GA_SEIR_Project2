@@ -12,36 +12,29 @@
     }
   </script>
  <script id="helper" data-name='<%= objectPath %>'  src="../javascripts/discoverShow.js"></script>
-  
-  <script type="module" src="../javascripts/discoverShow.js"></script>
-  
+    <script type="module" src="../javascripts/discoverShow.js"></script>
+
 <div class="furniture_details" >
-    <h1> Furniture Details </h1>
-    <ul class="skills-list">
-      <li> Product:  <%= furnitureDetails.product_name %> </li>
-      <li> Description:  <%= furnitureDetails.product_description %> </li>
-      <li> Class:  <%= furnitureDetails.class_name %> </li>
-      <li> Price:  <%= furnitureDetails.sale_price %> </li>
-    </ul>
+    <h1><%= furnitureDetails.product_name %></h1>
+    <h2><%= furnitureDetails.product_description%></h2>
+    <h2><%= furnitureDetails.sale_price%></h2>
 </div>
     
+  <!-- <% if (user) { %>
+        <input type="submit" value="Add To Wish List">
+        <input type="submit" value="Add Review">
+        <% } %>
 
-  <div>
+        <% if (user) { %>
+            <input type="submit" value="Add To Wish List">
+            <input type="submit" value="Add Review">
+            <% } %> -->
+
 
     <div> Product Details </div>
 
 
     <div> Reviews </div>
-
-    <form action="/wishlist" method="POST">
-    <button name="" value=<%= furnitureDetails %> >Add to Wish List</button>
-  </form>
-    
-
-    <button>
-    <div> Add a Review </div>
-    </button>
-
 
 
 </body>

@@ -10,8 +10,6 @@ const reviewSchema = new mongoose.Schema({
 });
 
 
-
-
 const noteSchema = new mongoose.Schema({
     text: String,
     user_id: [{type: Schema.Types.ObjectId, ref: 'User'}],
@@ -20,24 +18,29 @@ const noteSchema = new mongoose.Schema({
 });
 
 
-
-
-
 const furnitureObjectSchema = new mongoose.Schema({
     sku: {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
     product_name: {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
     product_description: {
-        type: String
+        type: String,
+        required: true,
+        unique: true
       },
     class_name: {
         type: String
     },
     product_page_url: {
-        type: String
+        type: String,
+        required: true,
+        unique: true
     },
     class_name: {
         type: String
@@ -48,7 +51,7 @@ const furnitureObjectSchema = new mongoose.Schema({
     thumbnail_image_url: {
         type: String
     },
-    glb: {
+    model: {
         type: String
     },
     user_wish_list: [{ type: Schema.Types.ObjectId, ref: 'User' }],

@@ -1,12 +1,11 @@
 const FurnitureObject = require('../models/furnitureObject');
 const User = require('../models/user')
-const axios = require('axios')
 
 
 
 
-
-const newWishItem = async (req, res) => {
+const index = async (req, res) => {
+    // save item in db 
     console.log(req.body)
     const newItem = new FurnitureObject(req.body);
     try {
@@ -15,11 +14,12 @@ const newWishItem = async (req, res) => {
     } catch (err) {
         console.log(err)
     }
-    res.redirect('/wishlist')
+
+    res.redirect(`/review/:${newItem._id}`)
 }
 
 
-const index = (req, res) => {
+const newReview = (req, res) => {
     FurnitureObject.find({}, function (err, furniture) {
         res.render("wishlist/index", { furniture, title: "My Furniture" });
     });
@@ -29,6 +29,6 @@ const index = (req, res) => {
 
 module.exports = {
     index,
-    new: newWishItem
+    new: newReview
 };
 
