@@ -13,13 +13,17 @@
   </script>
  <script id="helper" data-name='<%= objectPath %>'  src="../javascripts/discoverShow.js"></script>
     <script type="module" src="../javascripts/discoverShow.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 
-<div class="furniture_details" >
-    <h1><%= furnitureDetails.product_name %></h1>
-    <h2><%= furnitureDetails.product_description%></h2>
-    <h2><%= furnitureDetails.sale_price%></h2>
+
+<div id="furniture_details" >
+    <div id="product_name"><%= furnitureDetails.product_name %></div>
+    <div id="product_description"><%= furnitureDetails.product_description%></div>
+    <div id="product_price"><%= furnitureDetails.sale_price%></div>
 </div>
     
+
+
   <!-- <% if (user) { %>
         <input type="submit" value="Add To Wish List">
         <input type="submit" value="Add Review">
@@ -31,10 +35,10 @@
             <% } %> -->
 
 
-    <div> Product Details </div>
-
-
-    <div> Reviews </div>
+    <div class="button_container"> 
+        <a class="link_button">Read Reviews</a>
+        <a class="link_button">Add to Wish List</a>
+    </div>
 
 
 </body>
