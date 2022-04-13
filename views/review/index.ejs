@@ -23,7 +23,15 @@
     <div id="product_price"><%= furnitureDetails.sale_price%></div>
 </div>
 
-
-
-
 </div>
+
+<% if (user) { %>
+
+    <div class="review_container">
+    <form id="add_review" method="POST" action="/review/<%= furnitureDetails._id %>">
+      <label>Review:</label>
+      <textarea type="text" name="content"> </textarea>
+      <input  type="submit" value="Add Review">
+    </form>
+    </div>
+    <% } %>

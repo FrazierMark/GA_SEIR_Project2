@@ -3,20 +3,23 @@ const Schema = mongoose.Schema;
 
 
 const reviewSchema = new mongoose.Schema({
-    text: String,
-    user_id: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    content: { type: String, required: true },
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    userName: String,
+    userAvatar: String
 }, {
     timestamps: true
 });
 
 
 const noteSchema = new mongoose.Schema({
-    text: String,
-    user_id: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    content: { type: String, required: true },
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    userName: String,
+    userAvatar: String
 }, {
     timestamps: true
 });
-
 
 const furnitureObjectSchema = new mongoose.Schema({
     sku: {
