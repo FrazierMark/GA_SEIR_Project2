@@ -10,7 +10,6 @@ router.get('/', isLoggedIn, wishlistCtrl.index);
 
 // router.get('/:id', wishlistCtrl.show);
 
-
-
+router.get('/add_edit/:id', isLoggedIn, wishlistCtrl.)
 
 module.exports = router;
