@@ -3,7 +3,7 @@ const router = express.Router();
 const wishlistCtrl = require('../controllers/wishlist');
 const isLoggedIn = require('../config/auth');
 
-router.post('/', isLoggedIn, wishlistCtrl.new)
+router.post('/:id', isLoggedIn, wishlistCtrl.new)
 
 //Access to all furniture....
 router.get('/', isLoggedIn, wishlistCtrl.index);

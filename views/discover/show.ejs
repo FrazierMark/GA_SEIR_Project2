@@ -51,6 +51,9 @@
                     <form action="/review/<%= f._id %>?_method=DELETE" method="POST">
                       <button type="submit">X</button>
                     </form>
+                    <form action="/review/<%= f._id %>?_method=PUT" method="POST">
+                      <button type="submit">Edit</button>
+                    </form>
                   <% } %>
                 </td>
               </tr>
@@ -67,8 +70,10 @@
 
   <% if (user) { %>
     <div class="button_container"> 
-        <a class="link_button">Add to Wish List</a>
-      <input type="submit" value="Add To Wish List">
+      <form id="add_to_wishlist" action="/wishlist/<%= furnitureDetails._id %>" method="POST">
+        <input type ="hidden" name="wish_list" value="Add To Wish List" />
+      <button class="link_button" type="submit" ></button>
+    </form>
     
 
       <a href="/review/<%= furnitureDetails._id %>" class="link_button">Add Review</a>

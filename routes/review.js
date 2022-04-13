@@ -7,7 +7,9 @@ router.post('/:id', isLoggedIn, reviewCtrl.new)
 
 router.get('/:id', isLoggedIn, reviewCtrl.index);
 
-router.delete('/:id', isLoggedIn, reviewCtrl.delete);
+router.put('/:id', isLoggedIn, reviewCtrl.edit);
+
+
 
 
 

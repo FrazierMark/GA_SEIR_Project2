@@ -25,11 +25,11 @@
       </tr>
     </thead>
     <tbody>
-      <% furniture.forEach(function(f) { %>
+      <% wishList.forEach(function(wish) { %>
         <tr>
-          <td><%= f.product_name %></td>
-          <td><%= f.sale_price %></td>
-          <td><a href="/wishlist/<%= f._id %>">DETAILS</a></td>
+          <td><%= wish.product_name %></td>
+          <td><%= wish.sale_price %></td>
+          <td><a href="/wishlist/<%= wish._id %>">Add NOTE?</a></td>
         </tr>
         <% }); %>
       </tbody>

@@ -27,7 +27,6 @@ const newReview = (req, res) => {
 }
 
 
-// Include the next parameter - used for error handling in the catch
 function deleteReview(req, res, next) {
     FurnitureObject.findOne({ 'reviews._id': req.params.id }).then(function (item) {
         const review = item.reviews.id(req.params.id);
@@ -42,12 +41,24 @@ function deleteReview(req, res, next) {
 }
 
 
-
+function editReview(req, res, next) {
+    FurnitureObject.findOne({ 'reviews._id': req.params.id }).then(function (item) {
+        const review = item.reviews.id(req.params.id);
+        if (!review.user.equals(req.user._id)) return res.redirect(`/discover/${item._id}`);
+        review.remove();
+        item.save().then(function () {
+            res.redirect(`/discover/${item._id}`);
+        }).catch(function (err) {
+            return next(err);
+        });
+    });
+}
 
 
 module.exports = {
     index,
     new: newReview,
-    delete: deleteReview
+    delete: deleteReview,
+    edit: editReview
 };
 

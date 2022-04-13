@@ -57,7 +57,6 @@ const furnitureObjectSchema = new mongoose.Schema({
     model: {
         type: String
     },
-    user_wish_list: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     reviews: [reviewSchema],
     notes: [noteSchema]
     
