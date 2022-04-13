@@ -23,11 +23,53 @@
     <div id="product_price"><%= furnitureDetails.sale_price%></div>
 </div>
 
-<div id="review_container">
-  TEST TEST TEST
-  - TREVIE
-  -REveiwer
+<div class="review_container" >
+  <% if (furnitureDetails.reviews.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Review</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let total=0 %>
+          <% furnitureDetails.reviews.forEach(function(f) { %>
+              <tr>
+                <td class="review-user"><img alt="avatar" src="<%= f.userAvatar %>"><%= f.userName %></td>
+                <td>
+                  <%= f.createdAt.toLocaleDateString() %>
+                </td>
+                <td>
+                  <%= f.content %>
+                </td>
+                <td>
+                  <%= f.rating %>
+                </td>
+                <td>
+                  <% if (user && user._id.equals(f.user)) { %>
+                    <form action="/review/<%= f._id %>?_method=DELETE" method="POST">
+                      <button type="submit">X</button>
+                    </form>
+                  <% } %>
+                </td>
+              </tr>
+              <% }); %>
+                <tr>
+                  <td colspan="2"></td>
+                  <td><strong>
+                      <%= (total / furnitureDetails.reviews.length).toFixed(1) %>
+                    </strong></td>
+                </tr>
+      </tbody>
+    </table>
+    <% } else { %>
+      <h5>No Reviews Yet</h5>
+      <% } %>
 </div>
+
+
 
 
   <% if (user) { %>
