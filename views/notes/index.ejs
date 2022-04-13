@@ -27,8 +27,7 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>Review</th>
-        <th>Rating</th>
+        <th>Note</th>
       </tr>
     </thead>
     <tbody>
@@ -39,7 +38,6 @@
               </td>
               <td>
                 <form id="edit_note" action="/notes/<%=n._id%>?_method=PUT" method="POST">
-                  <label>Note:</label>
                   <textarea type="text" name="content"><%= n.content %></textarea>
                   <input  type="submit" value="Edit Private Note">
                 </form>
