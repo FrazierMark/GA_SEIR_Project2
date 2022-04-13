@@ -8,9 +8,6 @@ const { findById } = require('../models/furnitureObject');
 
 
 const newWishItem = async (req, res) => {
-    console.log(`${req.user._id} <<-----req.body.user`)
-    console.log(`${req.params.id} <<----- req.params.id`)
-
     try {
         const newWishItem = await FurnitureObject.findById(req.params.id);
         console.log(newWishItem)
@@ -27,21 +24,17 @@ const newWishItem = async (req, res) => {
 
 
 const index = (req, res) => {
-
     const currentUser = User.findById(req.user.id)
         .populate('wish_list')
         .exec(function (err, userData) {
-
             const wishList = userData.wish_list
-
             res.render("wishlist/index", { wishList: wishList, title: "My Furniture" });
         })
 }
 
 
-
 module.exports = {
     index,
-    new: newWishItem
+    new: newWishItem,
 };
 

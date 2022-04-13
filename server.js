@@ -13,8 +13,9 @@ require('./config/database');
 require('./config/passport');
 const indexRouter = require('./routes/index');
 const discoverRouter = require('./routes/discover');
-const wishListRouter = require('./routes/wishlist')
-const reviewRouter = require('./routes/review')
+const wishListRouter = require('./routes/wishlist');
+const reviewRouter = require('./routes/review');
+const notesRouter = require('./routes/notes');
 
 const app = express();
 
@@ -59,6 +60,7 @@ app.use('/', indexRouter);
 app.use('/discover', discoverRouter);
 app.use('/wishlist', wishListRouter);
 app.use('/review', reviewRouter);
+app.use('/notes', notesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
