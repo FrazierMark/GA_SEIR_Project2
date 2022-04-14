@@ -9,6 +9,8 @@ router.get('/:id', isLoggedIn, reviewCtrl.index);
 
 router.put('/:id', isLoggedIn, reviewCtrl.edit);
 
+router.delete('/:id', isLoggedIn, reviewCtrl.delete);
+
 
 
 

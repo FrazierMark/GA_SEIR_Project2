@@ -28,15 +28,15 @@
     <table>
       <thead>
         <tr>
-          <th>Date</th>
+          <th>User</th>
+          <th></th>
           <th>Review</th>
         </tr>
       </thead>
       <tbody>
-        <% let total=0 %>
           <% furnitureDetails.reviews.forEach(function(f) { %>
               <tr>
-                <td class="review-user"><img alt="avatar" src="<%= f.userAvatar %>"><%= f.userName %></td>
+                <td ><img id="review-user" alt="avatar" src="<%= f.userAvatar %>"><%= f.userName %></td>
                 <td>
                   <%= f.createdAt.toLocaleDateString() %>
                 </td>
@@ -44,12 +44,9 @@
                   <%= f.content %>
                 </td>
                 <td>
-                  <%= f.rating %>
-                </td>
-                <td>
                   <% if (user && user._id.equals(f.user)) { %>
                     <form action="/review/<%= f._id %>?_method=DELETE" method="POST">
-                      <button type="submit">X</button>
+                      <button class="delete_button" type="submit">Delete</button>
                     </form>
                   <% } %>
                 </td>
@@ -67,9 +64,9 @@
 
   <% if (user) { %>
     <div class="button_container"> 
-      <form id="add_to_wishlist" action="/wishlist/<%= furnitureDetails._id %>" method="POST">
+      <form action="/wishlist/<%= furnitureDetails._id %>" method="POST">
         <input type ="hidden" name="wish_list" value="Add To Wish List" />
-      <button class="link_button" type="submit" ></button>
+      <button class="link_button" type="submit" >Add to Wish List</button>
     </form>
     
 
