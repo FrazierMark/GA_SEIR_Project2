@@ -18,8 +18,8 @@ const newReview = (req, res) => {
         req.body.userAvatar = req.user.avatar;
         furnitureItem.reviews.push(req.body);
         furnitureItem.save(function (err) {
-        console.log(furnitureItem)
-        res.redirect(`/discover/${furnitureItem._id}`)
+            console.log(furnitureItem)
+            res.redirect(`/discover/${furnitureItem._id}`)
         })
     })
 }

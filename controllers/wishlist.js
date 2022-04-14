@@ -22,7 +22,6 @@ const index = async (req, res) => {
         })
 }
 
-
 const deleteWishItem = async (req, res) => {
     try {
         const currentUser = await User.findById(req.user.id)
@@ -34,8 +33,6 @@ const deleteWishItem = async (req, res) => {
     }
     res.redirect('/wishlist')
 }
-
-
 
 module.exports = {
     index,

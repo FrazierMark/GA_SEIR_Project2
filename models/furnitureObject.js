@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const reviewSchema = new mongoose.Schema({
     content: { type: String, required: true },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -10,7 +9,6 @@ const reviewSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
-
 
 const noteSchema = new mongoose.Schema({
     content: { type: String, required: true },
@@ -36,7 +34,7 @@ const furnitureObjectSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
-      },
+    },
     class_name: {
         type: String
     },
@@ -59,7 +57,7 @@ const furnitureObjectSchema = new mongoose.Schema({
     },
     reviews: [reviewSchema],
     notes: [noteSchema]
-    
+
 }, {
     timestamps: true
 });

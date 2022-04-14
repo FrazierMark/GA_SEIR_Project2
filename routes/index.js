@@ -1,5 +1,4 @@
 const express = require('express');
-const User = require("../models/user")
 var router = express.Router();
 const passport = require('passport');
 
@@ -22,7 +21,6 @@ router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
 });
-
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

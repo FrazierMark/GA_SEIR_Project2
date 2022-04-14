@@ -11,27 +11,33 @@
       }
     }
   </script>
- <script id="helper" data-name='<%= objectPath %>'  src="../javascripts/discoverShow.js"></script>
-    <script type="module" src="../javascripts/discoverShow.js"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-
-    <div class="show_container">
-
-<div id="furniture_details" >
-    <div id="product_name"><%= furnitureDetails.product_name %></div>
-    <div id="product_description"><%= furnitureDetails.product_description%></div>
-    <div id="product_price"><%= furnitureDetails.sale_price%></div>
-</div>
-
-</div>
-
-<% if (user) { %>
-
-    <div class="review_container">
-    <form id="add_review" method="POST" action="/review/<%= furnitureDetails._id %>">
+  <script
+    id="helper"
+    data-name="<%= objectPath %>"
+    src="../javascripts/discoverShow.js"
+  ></script>
+  <script type="module" src="../javascripts/discoverShow.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <div class="show_container">
+    <div id="furniture_details">
+      <div id="product_name"><%= furnitureDetails.product_name %></div>
+      <div id="product_description">
+        <%= furnitureDetails.product_description%>
+      </div>
+      <div id="product_price"><%= furnitureDetails.sale_price%></div>
+    </div>
+  </div>
+  <% if (user) { %>
+  <div class="review_container">
+    <form
+      id="add_review"
+      method="POST"
+      action="/review/<%= furnitureDetails._id %>"
+    >
       <label id="product_description">Review:</label>
       <textarea type="text" name="content"> </textarea>
-      <input class="link_button" type="submit" value="Add Review">
+      <input class="link_button" type="submit" value="Add Review" />
     </form>
-    </div>
-    <% } %>
+  </div>
+  <% } %>
+</body>

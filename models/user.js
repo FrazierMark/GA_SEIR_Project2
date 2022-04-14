@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-
-
 const userSchema = new mongoose.Schema({
     name: String,
     googleId: {
@@ -15,7 +12,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         max: 50,
         unique: true
-      },
+    },
     avatar: String,
     wish_list: [{ type: Schema.Types.ObjectId, ref: 'FurnitureObject' }],
 }, {

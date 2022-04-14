@@ -15,7 +15,6 @@
     <script type="module" src="../../javascripts/discoverShow.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
-
 <div id="furniture_details" >
     <div id="product_name"><%= furnitureData.product_name %></div>
 </div>
@@ -57,17 +56,13 @@
     <div id="product_description">No Notes Yet</div>
     <% } %>
   </div>
-
-
 <% if (user) { %>
     <div class="note_container">
       <table>
-
     <form class="note_item" id="product_description" method="POST" action="/notes/<%= furnitureData._id %>">
       <label id="product_description">Note:</label>
       <textarea type="text" name="content"> </textarea>
       <input class="delete_button" type="submit" value="Add Note" style="float: right;">
     </form>
-
       </table>
 <% } %>

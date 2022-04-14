@@ -1,42 +1,39 @@
 <%- include('../partials/header') %>
 
-  <body>
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "./build/three.module.js",
-          "three/examples/jsm/loaders/GLTFLoader":"./jsm/loaders/GLTFLoader.js",
-          "three/examples/jsm/controls/OrbitControls":"./jsm/controls/OrbitControls.js",
-          "three/examples/jsm/libs/stats.module":"./jsm/libs/stats.module.js",
-          "lil-gui":"./dist/lil-gui.esm.js"
-        }
+<body>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./build/three.module.js",
+        "three/examples/jsm/loaders/GLTFLoader": "./jsm/loaders/GLTFLoader.js",
+        "three/examples/jsm/controls/OrbitControls": "./jsm/controls/OrbitControls.js",
+        "three/examples/jsm/libs/stats.module": "./jsm/libs/stats.module.js",
+        "lil-gui": "./dist/lil-gui.esm.js"
       }
+    }
   </script>
-    <script type="module" src="javascripts/landingPage.js"></script>
-  </body>
-
-
-  <table class="wishlist_container">
-    <thead>
-      <tr>
-        <th>Product Name</th>
-        <th></th>
-        <th>Product Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% wishList.forEach(function(wish) { %>
-        <tr>
-          <td><%= wish.product_name %></td>
-          <td><%= wish.sale_price %></td>
-          <td><a class="delete_button" href="/notes/<%= wish._id %>">Notes</a></td>
-          <td>
-              <form action="/wishlist/<%= wish._id %>?_method=DELETE" method="POST">
-                <button class="delete_button" type="submit">Delete</button>
-              </form>
-          </td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
-    
+  <script type="module" src="javascripts/landingPage.js"></script>
+</body>
+<table class="wishlist_container">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th></th>
+      <th>Product Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% wishList.forEach(function(wish) { %>
+    <tr>
+      <td><%= wish.product_name %></td>
+      <td><%= wish.sale_price %></td>
+      <td><a class="delete_button" href="/notes/<%= wish._id %>">Notes</a></td>
+      <td>
+        <form action="/wishlist/<%= wish._id %>?_method=DELETE" method="POST">
+          <button class="delete_button" type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
