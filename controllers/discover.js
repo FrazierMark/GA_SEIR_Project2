@@ -32,6 +32,18 @@ const userLogin = process.env.WAYFAIR_LOGIN
 // };
 
 
+// const index = async (req, res) => {
+//   try {
+//     const newFurniture = await new FurnitureObject(newObject)
+//     newFurniture.save()
+//     console.log(newFurniture)
+//   } catch (error) {
+//     console.error(error)
+//   }
+//   res.redirect('/')
+// }
+
+
 
 const index = (req, res) => {
   FurnitureObject.find({}, function (err, furniture) {
