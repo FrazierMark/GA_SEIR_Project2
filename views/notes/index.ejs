@@ -15,18 +15,18 @@
     <script type="module" src="../../javascripts/discoverShow.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 
-    <div class="show_container">
 
 <div id="furniture_details" >
     <div id="product_name"><%= furnitureData.product_name %></div>
 </div>
-</div>
 
 <% if (furnitureData.notes.length) { %>
-  <table>
+  <table id="edit_add_container" >
     <thead>
       <tr>
         <th>Date</th>
+        <th></th> 
+        <th></th> 
         <th>Note</th>
       </tr>
     </thead>
@@ -39,32 +39,35 @@
               <td>
                 <form id="edit_note" action="/notes/<%=n._id%>?_method=PUT" method="POST">
                   <textarea type="text" name="content"><%= n.content %></textarea>
-                  <input  type="submit" value="Edit Private Note">
+                  <input class="delete_button" type="submit" value="Edit Note" style="float: right;">
                 </form>
               </td>
               <td>
                 <% if (user && user._id.equals(n.user)) { %>
-                  <form action="/notes/<%= n._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
+                  <form id="edit_note" action="/notes/<%= n._id %>?_method=DELETE" method="POST">
+                    <button class="delete_button" type="submit">Delete</button>
                   </form>
                 <% } %>
               </td>
             </tr> 
             <% }); %> 
-              
     </tbody>
   </table>
   <% } else { %>
-    <h5>No Private Notes Yet</h5>
+    <div id="product_description">No Notes Yet</div>
     <% } %>
+  </div>
 
 
 <% if (user) { %>
-    <div class="review_container">
-    <form id="add_note" method="POST" action="/notes/<%= furnitureData._id %>">
-      <label>Note:</label>
+    <div class="note_container">
+      <table>
+
+    <form class="note_item" id="product_description" method="POST" action="/notes/<%= furnitureData._id %>">
+      <label id="product_description">Note:</label>
       <textarea type="text" name="content"> </textarea>
-      <input  type="submit" value="Add Private Note">
+      <input class="delete_button" type="submit" value="Add Note" style="float: right;">
     </form>
-    </div>
+
+      </table>
 <% } %>

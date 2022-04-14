@@ -16,12 +16,12 @@
   </body>
 
 
-  <table id="list">
+  <table class="wishlist_container">
     <thead>
       <tr>
-        <th>Product Name</th><br>
-        <th>Product Price</th>
+        <th>Product Name</th>
         <th></th>
+        <th>Product Price</th>
       </tr>
     </thead>
     <tbody>
@@ -29,8 +29,12 @@
         <tr>
           <td><%= wish.product_name %></td>
           <td><%= wish.sale_price %></td>
-          <td></td>
-          <td><a href="/notes/<%= wish._id %>"> View/Add/Edit Private Notes</a></td>
+          <td><a class="delete_button" href="/notes/<%= wish._id %>">Notes</a></td>
+          <td>
+              <form action="/wishlist/<%= wish._id %>?_method=DELETE" method="POST">
+                <button class="delete_button" type="submit">Delete</button>
+              </form>
+          </td>
         </tr>
         <% }); %>
       </tbody>
