@@ -21,7 +21,6 @@
       <tr>
         <th>Product Name</th><br>
         <th>Product Price</th>
-        <th>Notes</th>
         <th></th>
       </tr>
     </thead>
@@ -31,7 +30,7 @@
           <td><%= wish.product_name %></td>
           <td><%= wish.sale_price %></td>
           <td></td>
-          <td><a href="/notes/<%= wish._id %>"> View Private Notes</a></td>
+          <td><a href="/notes/<%= wish._id %>"> View/Add/Edit Private Notes</a></td>
         </tr>
         <% }); %>
       </tbody>
