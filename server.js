@@ -19,7 +19,6 @@ const reviewRouter = require('./routes/review');
 const notesRouter = require('./routes/notes');
 
 const app = express();
-app.enable('trust proxy')
 
 // view engine setup
 // going to be sent back and forth on every http request response
