@@ -1,38 +1,48 @@
-# GA_SEIR_Project2
- General Assembly - Project 2 - Express App
+# Home of Tomorrow 
 
-# passport-boilerplate
-
-
-This is your passport boilerplate.
-
-## Setup 
-
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+## GA_SEIR_Project2
+ 
+## This is a full stack 3D application that allows users to view and catalog furniture items in 3D.
+- From the main discover page, users can select from many different furniture items to view.
+- The user can sign-in via Google OAuth 2.0 and review specific items.
+- The user can also add items to their Wish List. From the wish list page,
+ users (if signed-in and authenticated) can view, add, edit, or delete private notes on their favorite furniture peices.
+ -The majority of the 3D models were provided by [Wayfair's 3D Model API](https://documenter.getpostman.com/view/427064/RWgqVK43)
 
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin master` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin master`
+![Screen shot of Home of Tomorrow App](https://imgur.com/70sWA3K)
+![Screen shot of Home of Tomorrow App](https://imgur.com/C2ycdf2)
 
-#### Setup your login
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
+## Techologies Used
+* HTML
+* CSS
+* JavaScript
+* ThreeJS
+* Express
+* MongoDB / Mongoose
+* NodeJS
+* Passport
+* Google OAuth 2.0
+* EJS
+* Heroku
 
-#### Make a commit 
+## Getting Started & Live Game Link
+* URL to come [Home Of Tomorrow]
+* [Trello Board](https://trello.com/b/ai5evKql/gaseiproject2)
+* [ERD](https://lucid.app/lucidchart/20c3bcd7-1084-4348-adc8-76bb99e38169/edit?invitationId=inv_eb006ed0-f1b1-4447-8f98-093c4e5d0c2b)
 
-```git commit -m "setup up oauth and User Model"```
+ 
+#### To run locally, clone the repository and open the project in your editor
+* In the project directory, you can run:
+#### 'npm install'
+* Installs node modules
+#### 'npm start'
+* Runs the app in development mode on http://localhost:3000
+* The page should reload on edits
+
+## Next Steps
+* As a user, I want to be greated with a personalized message at login.
+* As a user, I want to be able to upload my own .glb models to view.
+* As a user, I want to be able to adjust the lighting of the 3D scene.
+ 
