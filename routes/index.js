@@ -24,7 +24,7 @@ router.get('/logout', function (req, res) {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('landingPage', { title: 'Home' });
+  res.render('../views/landingPage', { title: 'Home' });
 });
 
 module.exports = router;
