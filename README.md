@@ -1,6 +1,6 @@
 # Home of Tomorrow 
 
-## GA_SEIR_Project2
+## GA - SEIR - Project2
  
 ## This is a full stack 3D application that allows users to view and catalog furniture items in 3D.
 - From the main discover page, users can select from many different furniture items to view.
