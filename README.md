@@ -10,8 +10,8 @@
  -The majority of the 3D models were provided by [Wayfair's 3D Model API](https://documenter.getpostman.com/view/427064/RWgqVK43)
 
 
-![Screen shot of Home of Tomorrow App](https://imgur.com/70sWA3K)
-![Screen shot of Home of Tomorrow App](https://imgur.com/C2ycdf2)
+![Screen shot of Home of Tomorrow App](https://imgur.com/70sWA3K.png)
+![Screen shot of Home of Tomorrow App](https://imgur.com/C2ycdf2.png)
 
 
 ## Techologies Used
