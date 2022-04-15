@@ -43,7 +43,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+
+// app.use(express.static(path.join(__dirname, '/public')));
 app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')));
 app.use('/jsm/', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')));
 app.use('/dist/', express.static(path.join(__dirname, 'node_modules/lil-gui/dist')));
