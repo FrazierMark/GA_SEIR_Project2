@@ -5,8 +5,8 @@
 ## This is a full stack 3D application that allows users to view and catalog furniture items in 3D.
 - From the main discover page, users can select from many different furniture items to view.
 - The user can sign-in via Google OAuth 2.0 and review specific items.
-- The user can also add items to their Wish List. From the wish list page,
- users (if signed-in and authenticated) can view, add, edit, or delete private notes on their favorite furniture peices.
+- The user can also add items to their wish list. From the wish list page,
+ users (if signed-in and authenticated) can view, add, edit, or delete private notes on their favorite furniture pieces.
  -The majority of the 3D models were provided by [Wayfair's 3D Model API](https://documenter.getpostman.com/view/427064/RWgqVK43)
 
 
