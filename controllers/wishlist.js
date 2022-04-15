@@ -19,8 +19,8 @@ const index = async (req, res) => {
         .exec(function (err, userData) {
             const wishList = userData.wish_list
             let randomItem = wishList[Math.floor(Math.random() * wishList.length)]
-            
-            res.render("wishlist/index", { wishList: wishList, title: "My Furniture", objectPath: (randomItem ? randomItem.model : 'http://img.wfrcdn.com/docresources/44316/205/2057050.glb')});
+
+            res.render("wishlist/index", { wishList: wishList, title: "My Furniture", objectPath: (randomItem ? randomItem.model : 'https://img.wfrcdn.com/docresources/44316/205/2057050.glb') });
         })
 }
 
