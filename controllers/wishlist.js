@@ -18,7 +18,12 @@ const index = async (req, res) => {
         .populate('wish_list')
         .exec(function (err, userData) {
             const wishList = userData.wish_list
-            const randomItem = wishList[Math.floor(Math.random() * wishList.length)]
+            let randomItem;
+            if (wishList.length == 0) {
+                randomItem = 'http://img.wfrcdn.com/docresources/44316/205/2057050.glb'
+            } else {
+                randomItem = wishList[Math.floor(Math.random() * wishList.length)]
+            }
             res.render("wishlist/index", { wishList: wishList, title: "My Furniture", objectPath: randomItem.model });
         })
 }
@@ -34,7 +39,6 @@ const deleteWishItem = async (req, res) => {
     }
     res.redirect('/wishlist')
 }
-
 
 module.exports = {
     index,
