@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // const objectPath = document.getElementById('helper').getAttribute('data-name');
-const featuredProductURL = 'https://www.img.wfrcdn.com/docresources/44316/205/2057050.glb'
+const featuredProductURL = 'http://img.wfrcdn.com/docresources/44316/205/2057050.glb'
 
 //Create Scene
 const scene = new THREE.Scene()
