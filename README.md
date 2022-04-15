@@ -28,7 +28,7 @@
 * Heroku
 
 ## Getting Started & Live Game Link
-* URL to come [Home Of Tomorrow]
+* [Home Of Tomorrow](https://home-of-tomorrow.herokuapp.com/discover)
 * [Trello Board](https://trello.com/b/ai5evKql/gaseiproject2)
 * [ERD](https://lucid.app/lucidchart/20c3bcd7-1084-4348-adc8-76bb99e38169/edit?invitationId=inv_eb006ed0-f1b1-4447-8f98-093c4e5d0c2b)
 
