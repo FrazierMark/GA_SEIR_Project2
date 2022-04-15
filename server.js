@@ -1,3 +1,4 @@
+
 require('dotenv').config(); // Allows server to read from the .env file
 const createError = require('http-errors');
 const express = require('express');
@@ -18,6 +19,7 @@ const reviewRouter = require('./routes/review');
 const notesRouter = require('./routes/notes');
 
 const app = express();
+app.enable('trust proxy')
 
 // view engine setup
 // going to be sent back and forth on every http request response
@@ -43,7 +45,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public/views'));
+app.use(express.static(path.join(__dirname, '/public')));
 //app.use(express.static(path.join(__dirname, 'public'), { index: false, extensions: ['html'] }));
 app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')));
 app.use('/jsm/', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')));

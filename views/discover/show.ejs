@@ -18,6 +18,19 @@
   ></script>
   <script type="module" src="../javascripts/discoverShow.js"></script>
   <link rel="stylesheet" href="/stylesheets/style.css" />
+  <div class="discover_container">
+    <div id="discover_item" class="dropdown">
+      <a id="my-dropdown" href="#" class="link_button" data-toggle="dropdown"
+        >All Products</a
+      >
+      <ul class="dropdown-menu">
+        <% products.forEach(function(p) { %>
+        <li><a href="/discover/<%= p._id %>"><%= p.product_name %></a></li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+  
   <div class="show_container">
     <div id="furniture_details">
       <div id="product_name"><%= furnitureDetails.product_name %></div>

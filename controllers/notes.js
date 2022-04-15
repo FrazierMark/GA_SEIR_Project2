@@ -53,3 +53,17 @@ module.exports = {
     addNote
 };
 
+
+
+function deleteNote(req, res, next) {
+    Mood.findOne({ 'notes._id': req.params.id }).then(function (mood) {
+        const note = mood.notes.id(req.params.id);
+        if (!note.user.equals(req.user._id)) return res.redirect(`/`);
+        note.remove();
+        mood.save().then(function () {
+            res.redirect(`/n`);
+        }).catch(function (err) {
+            return next(err);
+        });
+    });
+}

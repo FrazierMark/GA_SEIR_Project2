@@ -20,12 +20,14 @@ const index = (req, res) => {
 
 const show = async (req, res) => {
   let furnitureData;
+  let allFurniture;
   try {
     furnitureData = await FurnitureObject.findById(req.params.id)
+    allFurniture = await FurnitureObject.find({})
   } catch (error) {
     console.error(error);
   }
-  res.render("discover/show", { title: 'Product Details', furnitureDetails: furnitureData, objectPath: furnitureData.model })
+  res.render("discover/show", { title: 'Product Details', furnitureDetails: furnitureData, objectPath: furnitureData.model, products: allFurniture })
 }
 
 module.exports = {
