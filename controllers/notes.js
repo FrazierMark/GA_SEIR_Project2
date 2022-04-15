@@ -4,7 +4,6 @@ const User = require('../models/user')
 const showNotes = async (req, res) => {
     try {
         furnitureData = await FurnitureObject.findById(req.params.id)
-        console.log(furnitureData)
     } catch (error) {
         console.error(error)
     }
@@ -16,7 +15,6 @@ const addNote = (req, res) => {
         req.body.user = req.user._id;
         furnitureItem.notes.push(req.body);
         furnitureItem.save(function (err) {
-            console.log(furnitureItem)
             res.redirect(`/notes/${furnitureItem._id}`)
         })
     })

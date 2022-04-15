@@ -18,7 +18,8 @@ const index = async (req, res) => {
         .populate('wish_list')
         .exec(function (err, userData) {
             const wishList = userData.wish_list
-            res.render("wishlist/index", { wishList: wishList, title: "My Furniture" });
+            const randomItem = wishList[Math.floor(Math.random() * wishList.length)]
+            res.render("wishlist/index", { wishList: wishList, title: "My Furniture", objectPath: randomItem.model });
         })
 }
 
@@ -33,6 +34,7 @@ const deleteWishItem = async (req, res) => {
     }
     res.redirect('/wishlist')
 }
+
 
 module.exports = {
     index,
