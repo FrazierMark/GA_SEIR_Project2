@@ -7,6 +7,10 @@
 var app = require('../server');
 var debug = require('debug')('ga-seir-project2:server');
 var http = require('http');
+var express_enforces_ssl = require('express-enforces-ssl');
+app.enable('trust proxy');
+ 
+app.use(express_enforces_ssl());
 
 /**
  * Get port from environment and store in Express.
