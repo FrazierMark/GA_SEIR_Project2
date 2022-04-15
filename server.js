@@ -43,6 +43,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 app.use(cookieParser());
+app.use(express.static(__dirname + '/public/views'));
 app.use(express.static(path.join(__dirname, '/public')));
 //app.use(express.static(path.join(__dirname, 'public'), { index: false, extensions: ['html'] }));
 app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')));
