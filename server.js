@@ -1,8 +1,8 @@
 
 require('dotenv').config(); // Allows server to read from the .env file
 const createError = require('http-errors');
-var cors = require('cors')
 const express = require('express');
+var enforce = require('express-sslify');
 const bodyParser = require('body-parser')
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -20,13 +20,14 @@ const reviewRouter = require('./routes/review');
 const notesRouter = require('./routes/notes');
 
 const app = express();
-app.use(cors({}))
 // view engine setup
 // going to be sent back and forth on every http request response
 // inside it we're going to end storing logged in users database id
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
+enforce.HTTPS({ trustProtoHeader: true, trustXForwardedHostHeader: true })
 // setting up our session cookie
 app.use(session({
   secret: process.env.SECRET,
