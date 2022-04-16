@@ -1,6 +1,7 @@
 
 require('dotenv').config(); // Allows server to read from the .env file
 const createError = require('http-errors');
+var cors = require('cors')
 const express = require('express');
 const bodyParser = require('body-parser')
 const path = require('path');
@@ -19,7 +20,7 @@ const reviewRouter = require('./routes/review');
 const notesRouter = require('./routes/notes');
 
 const app = express();
-
+app.use(cors({}))
 // view engine setup
 // going to be sent back and forth on every http request response
 // inside it we're going to end storing logged in users database id
@@ -39,11 +40,12 @@ app.use(passport.session());
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
 app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 app.use(cookieParser());
+
+
 app.use(express.static(__dirname + '/public/views'));
 app.use(express.static(path.join(__dirname, '/public')));
 //app.use(express.static(path.join(__dirname, 'public'), { index: false, extensions: ['html'] }));
