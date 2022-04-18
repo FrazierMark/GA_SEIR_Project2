@@ -1,11 +1,11 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 // const objectPath = document.getElementById('helper').getAttribute('data-name');
 // console.log(objectPath)
 //Create Scene
-const scene = new THREE.Scene()
+const scene = new THREE.Scene();
 
 // Create Camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100)
@@ -13,12 +13,12 @@ camera.position.x = -2.5
 camera.position.y = 0
 camera.position.z = -.5
 
-const renderer = new THREE.WebGLRenderer({ antialias: true })
-renderer.setSize(window.innerWidth, window.innerHeight)
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff, 0);
 renderer.shadowMap.enabled = true;
-document.body.appendChild(renderer.domElement)
-const controls = new OrbitControls(camera, renderer.domElement)
+document.body.appendChild(renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
 
 //Materials & Textures
 // const material = new THREE.MeshMatcapMaterial;
@@ -51,7 +51,6 @@ let model;
 gltfLoader.load(
     '../models/tv3.glb',
     (gltf) => {
-        console.log(gltf)
         model = gltf.scene
         model.scale.set(.0002, .0002, .0002)
         model.traverse(n => {
