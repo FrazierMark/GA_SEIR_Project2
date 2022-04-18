@@ -13,7 +13,9 @@ const User = require('../models/user')
 // const userLogin = process.env.WAYFAIR_LOGIN
 
 const index = (req, res) => {
+
   FurnitureObject.find({}, function (err, furniture) {
+    res.set('Access-Control-Allow-Origin', '*'),
     res.render("discover/index", { title: 'Discover', products: furniture });
   });
 }
@@ -27,6 +29,7 @@ const show = async (req, res) => {
   } catch (error) {
     console.error(error);
   }
+  res.set('Access-Control-Allow-Origin', '*')
   res.render("discover/show", { title: 'Product Details', furnitureDetails: furnitureData, objectPath: furnitureData.model, products: allFurniture })
 }
 
