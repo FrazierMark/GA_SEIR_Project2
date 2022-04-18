@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 // const objectPath = document.getElementById('helper').getAttribute('data-name');
-const featuredProductURL = 'https://glb-container.s3.us-west-1.amazonaws.com/2057050+(1)+(1).glb'
+const featuredProductURL = 'https://glb-container.s3.us-west-1.amazonaws.com/Wayfair+GLBs/Zohaib+70.5%22+Square+Arm+Sofa.glb'
 
 
 
