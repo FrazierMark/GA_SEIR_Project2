@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+
 const reviewSchema = new mongoose.Schema({
     content: { type: String, required: true },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -10,6 +12,8 @@ const reviewSchema = new mongoose.Schema({
     timestamps: true
 });
 
+
+
 const noteSchema = new mongoose.Schema({
     content: { type: String, required: true },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -18,6 +22,7 @@ const noteSchema = new mongoose.Schema({
 }, {
     timestamps: true
 });
+
 
 const furnitureObjectSchema = new mongoose.Schema({
     sku: {

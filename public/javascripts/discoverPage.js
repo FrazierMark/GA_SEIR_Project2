@@ -5,8 +5,6 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // const objectPath = document.getElementById('helper').getAttribute('data-name');
 const featuredProductURL = 'https://glb-container.s3.us-west-1.amazonaws.com/Wayfair+GLBs/Zohaib+70.5%22+Square+Arm+Sofa.glb'
 
-
-
 //Create Scene
 const scene = new THREE.Scene()
 

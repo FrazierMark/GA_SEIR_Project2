@@ -20,16 +20,6 @@ renderer.shadowMap.enabled = true;
 document.body.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 
-//Materials & Textures
-// const material = new THREE.MeshMatcapMaterial;
-// const matcapTexture = new THREE.TextureLoader().load('https://makio135.com/matcaps/64/B6B8B1_994A24_315C81_927963-64px.png')
-// material.matcap = matcapTexture
-// const geometry = new THREE.SphereGeometry(.5, 70, 70)
-// const sphere = new THREE.Mesh(geometry, material)
-// sphere.position.x = 5.
-// sphere.position.y = 1.
-// sphere.position.z = -2.58
-// scene.add(sphere)
 
 // Lighting
 const hemiLight = new THREE.HemisphereLight(0xFEFAEB, 0x080820, 2.2);
