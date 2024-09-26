@@ -1,28 +1,28 @@
 <%- include('../partials/header') %>
 <body>
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "./build/three.module.js",
-        "three/examples/jsm/loaders/GLTFLoader": "./jsm/loaders/GLTFLoader.js",
-        "three/examples/jsm/controls/OrbitControls": "./jsm/controls/OrbitControls.js",
-        "three/examples/jsm/libs/stats.module": "./jsm/libs/stats.module.js",
-        "lil-gui": "./dist/lil-gui.esm.js"
-      }
-    }
-  </script>
-  <script type="module" src="javascripts/discoverPage.js"></script>
+	<script type="importmap">
+		{
+			"imports": {
+				"three": "./build/three.module.js",
+				"three/examples/jsm/loaders/GLTFLoader": "./jsm/loaders/GLTFLoader.js",
+				"three/examples/jsm/controls/OrbitControls": "./jsm/controls/OrbitControls.js",
+				"three/examples/jsm/libs/stats.module": "./jsm/libs/stats.module.js",
+				"lil-gui": "./dist/lil-gui.esm.js"
+			}
+		}
+	</script>
+	<script type="module" src="javascripts/discoverPage.js"></script>
 
-  <div class="discover_container">
-    <div id="discover_item" class="dropdown">
-      <a id="my-dropdown" href="#" class="link_button" data-toggle="dropdown"
-        >All Products</a
-      >
-      <ul class="dropdown-menu">
-        <% products.forEach(function(p) { %>
-        <li><a href="/discover/<%= p._id %>"><%= p.product_name %></a></li>
-        <% }); %>
-      </ul>
-    </div>
-  </div>
+	<div class="discover_container">
+		<div id="discover_item" class="dropdown">
+			<a id="my-dropdown" href="#" class="link_button" data-toggle="dropdown"
+				>All Products</a
+			>
+			<ul class="dropdown-menu">
+				<% products.forEach(function(p) { %>
+				<li><a href="/discover/<%= p._id %>"><%= p.product_name %></a></li>
+				<% }); %>
+			</ul>
+		</div>
+	</div>
 </body>

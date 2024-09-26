@@ -1,5 +1,5 @@
 const FurnitureObject = require('../models/furnitureObject');
-const User = require('../models/user')
+const User = require('../models/user');
 
 // For Wayfair API
 // const axios = require('axios')
@@ -13,27 +13,31 @@ const User = require('../models/user')
 // const userLogin = process.env.WAYFAIR_LOGIN
 
 const index = (req, res) => {
-
-  FurnitureObject.find({}, function (err, furniture) {
-    res.set('Access-Control-Allow-Origin', '*'),
-    res.render("discover/index", { title: 'Discover', products: furniture });
-  });
-}
+	FurnitureObject.find({}, function (err, furniture) {
+		res.set('Access-Control-Allow-Origin', '*'),
+			res.render('discover/index', { title: 'Discover', products: furniture });
+	});
+};
 
 const show = async (req, res) => {
-  let furnitureData;
-  let allFurniture;
-  try {
-    furnitureData = await FurnitureObject.findById(req.params.id)
-    allFurniture = await FurnitureObject.find({})
-  } catch (error) {
-    console.error(error);
-  }
-  res.set('Access-Control-Allow-Origin', '*')
-  res.render("discover/show", { title: 'Product Details', furnitureDetails: furnitureData, objectPath: furnitureData.model, products: allFurniture })
-}
+	let furnitureData;
+	let allFurniture;
+	try {
+		furnitureData = await FurnitureObject.findById(req.params.id);
+		allFurniture = await FurnitureObject.find({});
+	} catch (error) {
+		console.error(error);
+	}
+	res.set('Access-Control-Allow-Origin', '*');
+	res.render('discover/show', {
+		title: 'Product Details',
+		furnitureDetails: furnitureData,
+		objectPath: furnitureData.model,
+		products: allFurniture,
+	});
+};
 
 module.exports = {
-  index,
-  show
+	index,
+	show,
 };

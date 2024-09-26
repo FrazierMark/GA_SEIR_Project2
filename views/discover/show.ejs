@@ -1,85 +1,85 @@
 <%- include('../partials/header') %>
 <body>
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "../build/three.module.js",
-        "three/examples/jsm/loaders/GLTFLoader": "../jsm/loaders/GLTFLoader.js",
-        "three/examples/jsm/controls/OrbitControls": "../jsm/controls/OrbitControls.js",
-        "three/examples/jsm/libs/stats.module": "../jsm/libs/stats.module.js",
-        "lil-gui": "../dist/lil-gui.esm.js"
-      }
-    }
-  </script>
-  <script
-    id="helper"
-    data-name="<%= objectPath %>"
-    src="../javascripts/discoverShow.js"
-  ></script>
-  <script type="module" src="../javascripts/discoverShow.js"></script>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-  <div class="discover_container">
-    <div id="discover_item" class="dropdown">
-      <a id="my-dropdown" href="#" class="link_button" data-toggle="dropdown"
-        >All Products</a
-      >
-      <ul class="dropdown-menu">
-        <% products.forEach(function(p) { %>
-        <li><a href="/discover/<%= p._id %>"><%= p.product_name %></a></li>
-        <% }); %>
-      </ul>
-    </div>
-  </div>
+	<script type="importmap">
+		{
+			"imports": {
+				"three": "../build/three.module.js",
+				"three/examples/jsm/loaders/GLTFLoader": "../jsm/loaders/GLTFLoader.js",
+				"three/examples/jsm/controls/OrbitControls": "../jsm/controls/OrbitControls.js",
+				"three/examples/jsm/libs/stats.module": "../jsm/libs/stats.module.js",
+				"lil-gui": "../dist/lil-gui.esm.js"
+			}
+		}
+	</script>
+	<script
+		id="helper"
+		data-name="<%= objectPath %>"
+		src="../javascripts/discoverShow.js"
+	></script>
+	<script type="module" src="../javascripts/discoverShow.js"></script>
+	<link rel="stylesheet" href="/stylesheets/style.css" />
+	<div class="discover_container">
+		<div id="discover_item" class="dropdown">
+			<a id="my-dropdown" href="#" class="link_button" data-toggle="dropdown"
+				>All Products</a
+			>
+			<ul class="dropdown-menu">
+				<% products.forEach(function(p) { %>
+				<li><a href="/discover/<%= p._id %>"><%= p.product_name %></a></li>
+				<% }); %>
+			</ul>
+		</div>
+	</div>
 
-  <div class="show_container">
-    <div id="furniture_details">
-      <div id="product_name"><%= furnitureDetails.product_name %></div>
-      <div id="product_description">
-        <%= furnitureDetails.product_description%>
-      </div>
-      <div id="product_price"><%= furnitureDetails.sale_price%></div>
-    </div>
-    <div class="review_container">
-      <% if (furnitureDetails.reviews.length) { %>
-      <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Date</th>
-            <th>Review</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% furnitureDetails.reviews.forEach(function(f) { %>
-          <tr>
-            <td><%= f.userName %></td>
-            <td><%= f.createdAt.toLocaleDateString() %></td>
-            <td><%= f.content %></td>
-            <td>
-              <% if (user && user._id.equals(f.user)) { %>
-              <form action="/review/<%= f._id %>?_method=DELETE" method="POST">
-                <button class="delete_button" type="submit">Delete</button>
-              </form>
-              <% } %>
-            </td>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-      <% } else { %>
-      <div id="product_description">No Reviews Yet</div>
-      <% } %>
-    </div>
-    <% if (user) { %>
-    <div class="button_container">
-      <form action="/wishlist/<%= furnitureDetails._id %>" method="POST">
-        <input type="hidden" name="wish_list" value="Add To Wish List" />
-        <button class="link_button" type="submit">Add to Wish List</button>
-      </form>
-      <a href="/review/<%= furnitureDetails._id %>" class="link_button"
-        >Add Review</a
-      >
-    </div>
-    <% } %>
-  </div>
+	<div class="show_container">
+		<div id="furniture_details">
+			<div id="product_name"><%= furnitureDetails.product_name %></div>
+			<div id="product_description">
+				<%= furnitureDetails.product_description%>
+			</div>
+			<div id="product_price"><%= furnitureDetails.sale_price%></div>
+		</div>
+		<div class="review_container">
+			<% if (furnitureDetails.reviews.length) { %>
+			<table>
+				<thead>
+					<tr>
+						<th>User</th>
+						<th>Date</th>
+						<th>Review</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% furnitureDetails.reviews.forEach(function(f) { %>
+					<tr>
+						<td><%= f.userName %></td>
+						<td><%= f.createdAt.toLocaleDateString() %></td>
+						<td><%= f.content %></td>
+						<td>
+							<% if (user && user._id.equals(f.user)) { %>
+							<form action="/review/<%= f._id %>?_method=DELETE" method="POST">
+								<button class="delete_button" type="submit">Delete</button>
+							</form>
+							<% } %>
+						</td>
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
+			<% } else { %>
+			<div id="product_description">No Reviews Yet</div>
+			<% } %>
+		</div>
+		<% if (user) { %>
+		<div class="button_container">
+			<form action="/wishlist/<%= furnitureDetails._id %>" method="POST">
+				<input type="hidden" name="wish_list" value="Add To Wish List" />
+				<button class="link_button" type="submit">Add to Wish List</button>
+			</form>
+			<a href="/review/<%= furnitureDetails._id %>" class="link_button"
+				>Add Review</a
+			>
+		</div>
+		<% } %>
+	</div>
 </body>
