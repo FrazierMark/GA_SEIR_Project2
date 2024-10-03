@@ -1,4 +1,4 @@
-| Category | Requirement | Status | ✅ |
+| Category | Requirement | Status |  |
 |----------|-------------|--------|---|
 | 🐳 Docker | Repository contains a Dockerfile and a docker-compose.yml file |✅| |
 | 🐳 Docker | Dockerfile and docker-compose.yml file build without error |✅| |
