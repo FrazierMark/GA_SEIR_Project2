@@ -15,15 +15,15 @@ services:
       - WAYFAIR_LOGIN=${WAYFAIR_LOGIN}
     volumes:
       - .:/usr/src/app
-#     depends_on:
-#       - mongo
+    depends_on:
+      - mongo
 
-#   mongo:
-#     image: mongo:latest
-#     ports:
-#       - "27017:27017"
-#     volumes:
-#       - mongo_data:/data/db
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
 
-# volumes:
-#   mongo_data:
+volumes:
+  mongo_data:
