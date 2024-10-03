@@ -1,4 +1,4 @@
-require('dotenv').config(); // Allows server to read from the .env file
+require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const cors = require('cors');
@@ -83,6 +83,11 @@ app.use('/discover', discoverRouter);
 app.use('/wishlist', wishListRouter);
 app.use('/review', reviewRouter);
 app.use('/notes', notesRouter);
+
+// Add health check endpoint
+app.get('/health', (req, res) => {
+	res.status(200).send('OK');
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
